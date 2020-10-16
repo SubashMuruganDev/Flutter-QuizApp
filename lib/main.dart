@@ -11,7 +11,11 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.greenAccent[200],
+          title: Center(
+            child: Text('HomePage'),
+          ),
         ),
+        backgroundColor: Colors.deepPurple[400],
       ),
     );
   }
