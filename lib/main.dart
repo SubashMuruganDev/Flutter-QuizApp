@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,6 +18,10 @@ class MyApp extends StatelessWidget {
           ),
         ),
         backgroundColor: Colors.deepPurple[400],
+        body: Center(
+          child: Image.network(
+              'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg'),
+        ),
       ),
     );
   }
