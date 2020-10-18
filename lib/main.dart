@@ -5,7 +5,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  void onPressed() => print('option chosen');
+  void onPressed() => print('option 1 chosen');
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,11 +26,11 @@ class MyApp extends StatelessWidget {
             ),
             RaisedButton(
               child: Text('option 2'),
-              onPressed: onPressed,
+              onPressed: () => print('chosen opetion 2'),
             ),
             RaisedButton(
               child: Text('option 3'),
-              onPressed: onPressed,
+              onPressed: () => print('chosen opetion 3'),
             ),
           ],
         ),
