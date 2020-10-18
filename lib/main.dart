@@ -13,18 +13,26 @@ class MyApp extends StatefulWidget {
 
 class MyAppState extends State<MyApp> {
   var index = 0;
+  var questions = [
+    'whats your fav animal',
+    'whats your fav movies',
+    'whats your fav food',
+    'whats your fav car',
+    'whats your fav bike',
+    'whats your fav plane',
+  ];
   void onPressed() {
-    index = index + 1;
+    setState(() {
+      if (index < questions.length - 1) {
+        index++;
+      } else
+        print('import more questions from some library');
+    });
     print(index);
   }
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
-      'whats your fav animal',
-      'whats your fav movies',
-      'whats your fav food',
-    ];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -38,7 +46,7 @@ class MyAppState extends State<MyApp> {
           children: [
             Text(questions[index]),
             RaisedButton(
-              child: Text('Option 1'),
+              child: Text('Quick Change Question'),
               onPressed: onPressed,
             ),
             RaisedButton(
