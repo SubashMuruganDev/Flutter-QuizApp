@@ -6,13 +6,13 @@ void main() {
 
 class MyApp extends StatelessWidget {
   void onPressed() => print('option 1 chosen');
-  var questions = [
-    'whats your fav animal',
-    'whats your fav movies',
-    'whats your fav food',
-  ];
   @override
   Widget build(BuildContext context) {
+    var questions = [
+      'whats your fav animal',
+      'whats your fav movies',
+      'whats your fav food',
+    ];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
