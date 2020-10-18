@@ -36,17 +36,17 @@ class MyAppState extends State<MyApp> {
         // backgroundColor: Colors.deepPurple[400],
         body: Column(
           children: [
-            Text('Click on below any one options '),
+            Text(questions[index]),
             RaisedButton(
-              child: Text(questions[index]),
+              child: Text('Option 1'),
               onPressed: onPressed,
             ),
             RaisedButton(
-              child: Text(questions[1]),
+              child: Text('Option 2'),
               onPressed: () => print('chosen opetion 2'),
             ),
             RaisedButton(
-              child: Text(questions[2]),
+              child: Text('Option 3'),
               onPressed: () => print('chosen opetion 3'),
             ),
           ],
