@@ -5,7 +5,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  void onPressed() => print('option 1 chosen');
+  var index = 0;
+  void onPressed() {
+    index = index + 1;
+    print(index);
+  }
   @override
   Widget build(BuildContext context) {
     var questions = [
@@ -26,7 +30,7 @@ class MyApp extends StatelessWidget {
           children: [
             Text('Click on below any one options '),
             RaisedButton(
-              child: Text(questions.elementAt(0)),
+              child: Text(questions[index]),
               onPressed: onPressed,
             ),
             RaisedButton(
