@@ -5,6 +5,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  void onPressed() => print('option chosen');
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,15 +16,22 @@ class MyApp extends StatelessWidget {
             child: Text('HomePage'),
           ),
         ),
-        backgroundColor: Colors.deepPurple[400],
+        // backgroundColor: Colors.deepPurple[400],
         body: Column(
           children: [
-            Center(
-              child: Text('Click something'),
+            Text('Click on below any one options '),
+            RaisedButton(
+              child: Text('option 1'),
+              onPressed: onPressed,
             ),
-            RaisedButton(child: Text('hai'), onPressed: null),
-            RaisedButton(child: Text('hai'), onPressed: null),
-            RaisedButton(child: Text('hai'), onPressed: null),
+            RaisedButton(
+              child: Text('option 2'),
+              onPressed: onPressed,
+            ),
+            RaisedButton(
+              child: Text('option 3'),
+              onPressed: onPressed,
+            ),
           ],
         ),
       ),
