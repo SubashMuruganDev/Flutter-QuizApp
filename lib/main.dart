@@ -6,6 +6,11 @@ void main() {
 
 class MyApp extends StatelessWidget {
   void onPressed() => print('option 1 chosen');
+  var questions = [
+    'whats your fav animal',
+    'whats your fav movies',
+    'whats your fav food',
+  ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,15 +26,15 @@ class MyApp extends StatelessWidget {
           children: [
             Text('Click on below any one options '),
             RaisedButton(
-              child: Text('option 1'),
+              child: Text(questions.elementAt(0)),
               onPressed: onPressed,
             ),
             RaisedButton(
-              child: Text('option 2'),
+              child: Text(questions[1]),
               onPressed: () => print('chosen opetion 2'),
             ),
             RaisedButton(
-              child: Text('option 3'),
+              child: Text(questions[2]),
               onPressed: () => print('chosen opetion 3'),
             ),
           ],
