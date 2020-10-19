@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 class CustomTextWidget extends StatelessWidget {
   String qestion;
-  String optionalArgument;
-  CustomTextWidget(this.qestion);
+  CustomTextWidget(
+    this.qestion,
+  ); //Constructor
   @override
   Widget build(BuildContext context) {
-    return Text(qestion);
+    return Text(
+      qestion,
+    );//text
   }
-  
 }
