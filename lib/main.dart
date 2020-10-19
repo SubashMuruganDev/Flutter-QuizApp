@@ -41,23 +41,25 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           backgroundColor: Colors.greenAccent[200],
           title: Center(
-            child: CustomTextWidget('HomePage'),
+            child: Text('HomePage'),
           ),
         ),
         // backgroundColor: Colors.deepPurple[400],
         body: Column(
           children: [
-            CustomTextWidget(_questions[_index]),
+            CustomTextWidget(
+              _questions[_index],
+            ),
             RaisedButton(
-              child: CustomTextWidget('Quick Change Question'),
+              child: Text('Quick Change Question'),
               onPressed: onPressed,
             ),
             RaisedButton(
-              child: CustomTextWidget('Option 2'),
+              child: Text('Option 2'),
               onPressed: () => print('chosen opetion 2'),
             ),
             RaisedButton(
-              child: CustomTextWidget('Option 3'),
+              child: Text('Option 3'),
               onPressed: () => print('chosen opetion 3'),
             ),
           ],
