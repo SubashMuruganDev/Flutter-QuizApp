@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './question.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -26,7 +28,8 @@ class _MyAppState extends State<MyApp> {
       if (_index < _questions.length - 1) {
         _index++;
       } else
-        print('import more questions from some library');
+        print(
+            'import more questions from some library since we have only limited');
     });
     print(_index);
   }
@@ -38,23 +41,23 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           backgroundColor: Colors.greenAccent[200],
           title: Center(
-            child: Text('HomePage'),
+            child: CustomTextWidget('HomePage'),
           ),
         ),
         // backgroundColor: Colors.deepPurple[400],
         body: Column(
           children: [
-            Text(_questions[_index]),
+            CustomTextWidget(_questions[_index]),
             RaisedButton(
-              child: Text('Quick Change Question'),
+              child: CustomTextWidget('Quick Change Question'),
               onPressed: onPressed,
             ),
             RaisedButton(
-              child: Text('Option 2'),
+              child: CustomTextWidget('Option 2'),
               onPressed: () => print('chosen opetion 2'),
             ),
             RaisedButton(
-              child: Text('Option 3'),
+              child: CustomTextWidget('Option 3'),
               onPressed: () => print('chosen opetion 3'),
             ),
           ],
