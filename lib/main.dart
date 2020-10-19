@@ -52,9 +52,9 @@ class _MyAppState extends State<MyApp> {
             C_TextWidget(
               _questions[_index],
             ),
-            C_ButtonWidget(),
-            C_ButtonWidget(),
-            C_ButtonWidget(),
+            C_ButtonWidget(onPressed),
+            C_ButtonWidget(onPressed),
+            C_ButtonWidget(onPressed),
           ],
         ),
       ),
