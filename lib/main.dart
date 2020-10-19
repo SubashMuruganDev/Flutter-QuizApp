@@ -7,13 +7,13 @@ void main() {
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var index = 0;
-  var questions = [
+class _MyAppState extends State<MyApp> {
+  var _index = 0;
+  var _questions = [
     'whats your fav animal',
     'whats your fav movies',
     'whats your fav food',
@@ -23,12 +23,12 @@ class MyAppState extends State<MyApp> {
   ];
   void onPressed() {
     setState(() {
-      if (index < questions.length - 1) {
-        index++;
+      if (_index < _questions.length - 1) {
+        _index++;
       } else
         print('import more questions from some library');
     });
-    print(index);
+    print(_index);
   }
 
   @override
@@ -44,7 +44,7 @@ class MyAppState extends State<MyApp> {
         // backgroundColor: Colors.deepPurple[400],
         body: Column(
           children: [
-            Text(questions[index]),
+            Text(_questions[_index]),
             RaisedButton(
               child: Text('Quick Change Question'),
               onPressed: onPressed,
