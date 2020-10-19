@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'Widget.dart';
+import './C_TextWidget.dart';
+
+import './C_ButtonWidget.dart';
 
 void main() {
   runApp(MyApp());
@@ -47,21 +49,12 @@ class _MyAppState extends State<MyApp> {
         // backgroundColor: Colors.deepPurple[400],
         body: Column(
           children: [
-            CustomTextWidget(
+            C_TextWidget(
               _questions[_index],
             ),
-            RaisedButton(
-              child: Text('Quick Change Question'),
-              onPressed: onPressed,
-            ),
-            RaisedButton(
-              child: Text('Option 2'),
-              onPressed: () => print('chosen opetion 2'),
-            ),
-            RaisedButton(
-              child: Text('Option 3'),
-              onPressed: () => print('chosen opetion 3'),
-            ),
+            C_ButtonWidget(),
+            C_ButtonWidget(),
+            C_ButtonWidget(),
           ],
         ),
       ),
