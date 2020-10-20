@@ -17,17 +17,31 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _index = 0;
-  var _questions = [
-    'whats your fav animal',
-    'whats your fav movies',
-    'whats your fav food',
-    'whats your fav car',
-    'whats your fav bike',
-    'whats your fav plane',
+  var questions = [
+    {
+      "question": 'what\'s your fav animal',
+      "answer": [
+        'cat',
+        'dog',
+        'pig',
+      ],
+    },
+    {
+      "question": 'what\'s your fav food',
+      "answer": ['Checken Briyani', 'chickenLeg', 'FridRice', 'Dog Leg Soup'],
+    },
+    {
+      "question": 'what\'s your fav Car',
+      "answer": ['lamborgini', 'tata', 'innova', 'auto'],
+    },
+    {
+      "question": 'what\'s your fav bike',
+      "answer": ['R15', 'cycle', 'honda', 'RoyanEnfield'],
+    },
   ];
   void onPressed() {
     setState(() {
-      if (_index < _questions.length - 1) {
+      if (_index < questions.length - 1) {
         _index++;
       } else
         print(
@@ -50,11 +64,11 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             C_TextWidget(
-              _questions[_index],
+              questions[_index]['question'],
             ),
-            C_ButtonWidget(onPressed),
-            C_ButtonWidget(onPressed),
-            C_ButtonWidget(onPressed),
+            ...(questions[_index]['answer'] as List<String>).map((answer) {
+              return C_ButtonWidget(onPressed, answer);
+            }).toList()
           ],
         ),
       ),
