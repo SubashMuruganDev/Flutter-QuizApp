@@ -1,8 +1,8 @@
+import 'package:Basics/quiz.dart';
+
+import 'package:Basics/result.dart';
+
 import 'package:flutter/material.dart';
-
-import './C_TextWidget.dart';
-
-import './C_ButtonWidget.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,24 +16,51 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var _index = 0;
-  var _questions = [
-    'whats your fav animal',
-    'whats your fav movies',
-    'whats your fav food',
-    'whats your fav car',
-    'whats your fav bike',
-    'whats your fav plane',
+  var index = 0;
+  var totalScore = 0;
+  final questions = const [
+    {
+      "question": 'what\'s your fav animal',
+      "answer": [
+        {'text': 'Cat', 'score': 10},
+        {'text': 'Dog', 'score': 20},
+        {'text': 'fish', 'score': 30},
+      ],
+    },
+    {
+      "question": 'what\'s your fav food',
+      "answer": [
+        {'text': 'Briyani', 'score': 20},
+        {'text': 'FridRice', 'score': 10},
+        {'text': 'Roti', 'score': 20},
+        {'text': 'Fish', 'score': 40},
+      ],
+    },
+    {
+      "question": 'what\'s your fav Car',
+      "answer": [
+        {'text': 'Innova', 'score': 30},
+        {'text': 'Tata', 'score': 20},
+        {'text': 'Audi', 'score': 100},
+        {'text': 'Lambogini', 'score': 200},
+      ],
+    },
   ];
-  void onPressed() {
+  void onPressed(int score) {
+    totalScore += score;
+    setState(
+      () {
+        index += 1;
+      },
+    );
+    print(totalScore);
+  }
+
+  void _reset() {
     setState(() {
-      if (_index < _questions.length - 1) {
-        _index++;
-      } else
-        print(
-            'import more questions from some library since we have only limited');
+      index = 0;
+      totalScore = 0;
     });
-    print(_index);
   }
 
   @override
@@ -46,17 +73,16 @@ class _MyAppState extends State<MyApp> {
             child: Text('HomePage'),
           ),
         ),
-        // backgroundColor: Colors.deepPurple[400],
-        body: Column(
-          children: [
-            C_TextWidget(
-              _questions[_index],
-            ),
-            C_ButtonWidget(onPressed),
-            C_ButtonWidget(onPressed),
-            C_ButtonWidget(onPressed),
-          ],
-        ),
+        body: index < questions.length
+            ? Quiz(
+                index: index,
+                questions: questions,
+                onPressed: onPressed,
+              )
+            : Result(
+                totalScore: totalScore,
+                reset: _reset,
+              ),
       ),
     );
   }
