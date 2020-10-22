@@ -72,7 +72,9 @@ class _MyAppState extends State<MyApp> {
                 questions: questions,
                 onPressed: onPressed,
               )
-            : Result(),
+            : Result(
+                totalScore: totalScore,
+              ),
       ),
     );
   }
