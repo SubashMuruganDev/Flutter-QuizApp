@@ -1,11 +1,12 @@
+import 'package:Basics/C_TextWidget.dart';
 import 'package:flutter/material.dart';
 
 //import 'C_TextWidget.dart';
 
 class Result extends StatelessWidget {
   final int totalScore;
-
-  Result({this.totalScore});
+  final Function reset;
+  Result({this.totalScore, this.reset});
 
   String get result {
     String resultText;
@@ -16,7 +17,7 @@ class Result extends StatelessWidget {
       resultText = 'Suggest to take retest';
       print(totalScore);
     } else {
-      resultText = 'you are too badass scored more than average';
+      resultText = 'you are too badass';
       print(totalScore);
     }
     return resultText;
@@ -24,14 +25,26 @@ class Result extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        result,
-        style: TextStyle(
-          fontSize: 23,
-          color: Colors.red,
+    return Column(
+      children: [
+        Center(
+          child: Text(
+            result,
+            style: TextStyle(
+              fontSize: 29,
+              color: Colors.black,
+            ),
+          ),
         ),
-      ),
+        FlatButton(
+          onPressed: reset,
+          child: Text(
+            'Click to reset',
+            style: TextStyle(fontSize: 25),
+          ),
+          textColor: Colors.blue,
+        ),
+      ],
     );
   }
 }
