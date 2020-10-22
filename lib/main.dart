@@ -1,8 +1,8 @@
+import 'package:Basics/quiz.dart';
+
+import 'package:Basics/result.dart';
+
 import 'package:flutter/material.dart';
-
-import './C_TextWidget.dart';
-
-import './C_ButtonWidget.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,38 +16,44 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var _index = 0;
-  var questions = [
+  var index = 0;
+  var totalScore = 0;
+  final questions = const [
     {
       "question": 'what\'s your fav animal',
       "answer": [
-        'cat',
-        'dog',
-        'pig',
+        {'text': 'Cat', 'score': 10},
+        {'text': 'Dog', 'score': 20},
+        {'text': 'fish', 'score': 30},
       ],
     },
     {
       "question": 'what\'s your fav food',
-      "answer": ['Checken Briyani', 'chickenLeg', 'FridRice', 'Dog Leg Soup'],
+      "answer": [
+        {'text': 'Briyani', 'score': 20},
+        {'text': 'FridRice', 'score': 10},
+        {'text': 'Roti', 'score': 20},
+        {'text': 'Fish', 'score': 40},
+      ],
     },
     {
       "question": 'what\'s your fav Car',
-      "answer": ['lamborgini', 'tata', 'innova', 'auto'],
-    },
-    {
-      "question": 'what\'s your fav bike',
-      "answer": ['R15', 'cycle', 'honda', 'RoyanEnfield'],
+      "answer": [
+        {'text': 'Innova', 'score': 30},
+        {'text': 'Tata', 'score': 20},
+        {'text': 'Audi', 'score': 100},
+        {'text': 'Lambogini', 'score': 200},
+      ],
     },
   ];
-  void onPressed() {
-    setState(() {
-      if (_index < questions.length - 1) {
-        _index++;
-      } else
-        print(
-            'import more questions from some library since we have only limited');
-    });
-    print(_index);
+  void onPressed(int score) {
+    totalScore += score;
+    setState(
+      () {
+        index += 1;
+      },
+    );
+    print(totalScore);
   }
 
   @override
@@ -60,17 +66,13 @@ class _MyAppState extends State<MyApp> {
             child: Text('HomePage'),
           ),
         ),
-        // backgroundColor: Colors.deepPurple[400],
-        body: Column(
-          children: [
-            C_TextWidget(
-              questions[_index]['question'],
-            ),
-            ...(questions[_index]['answer'] as List<String>).map((answer) {
-              return C_ButtonWidget(onPressed, answer);
-            }).toList()
-          ],
-        ),
+        body: index < questions.length
+            ? Quiz(
+                index: index,
+                questions: questions,
+                onPressed: onPressed,
+              )
+            : Result(),
       ),
     );
   }
