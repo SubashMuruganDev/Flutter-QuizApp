@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class C_TextWidget extends StatelessWidget {
+class TextWidget extends StatelessWidget {
   final String qestion; //added final to make it immutable
-  C_TextWidget(
+  TextWidget(
     this.qestion,
   ); //Constructor
   @override
