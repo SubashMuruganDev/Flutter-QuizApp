@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'C_TextWidget.dart';
+import 'TextWidget.dart';
 
 class ButtonWidget extends StatelessWidget {
   final Function dataHandler;
