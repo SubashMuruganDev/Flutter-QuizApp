@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'ButtonWidget.dart';
-import 'C_TextWidget.dart';
+import 'TextWidget.dart';
 
 class Quiz extends StatelessWidget {
   final Function onPressed;
