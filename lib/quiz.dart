@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'C_ButtonWidget.dart';
+import 'ButtonWidget.dart';
 import 'C_TextWidget.dart';
 
 class Quiz extends StatelessWidget {
@@ -18,12 +18,12 @@ class Quiz extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        C_TextWidget(
+        TextWidget(
           questions[index]['question'],
         ),
         ...(questions[index]['answer'] as List<Map<String, Object>>)
             .map((answer) {
-          return C_ButtonWidget(
+          return ButtonWidget(
             () => onPressed(answer['score']),
             answer['text'],
           );

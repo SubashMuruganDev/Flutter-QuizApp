@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import './C_TextWidget.dart';
+import 'C_TextWidget.dart';
 
-class C_ButtonWidget extends StatelessWidget {
+class ButtonWidget extends StatelessWidget {
   final Function dataHandler;
   final String answerText;
-  C_ButtonWidget(
+  ButtonWidget(
     this.dataHandler,this.answerText
   ); //constructor reciving function
 
@@ -16,7 +16,7 @@ class C_ButtonWidget extends StatelessWidget {
       color: Colors.blue[500],
       margin: EdgeInsets.all(10),
       child: RaisedButton(
-        child: C_TextWidget(this.answerText),
+        child: TextWidget(this.answerText),
         onPressed: dataHandler,
       ),
     );

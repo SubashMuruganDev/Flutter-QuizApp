@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
       "question": 'what\'s your fav Car',
       "answer": [
         {'text': 'Innova', 'score': 30},
-        {'text': 'Tata', 'score': 20},
+        {'text': 'Skoda', 'score': 20},
         {'text': 'Audi', 'score': 100},
         {'text': 'Lambogini', 'score': 200},
       ],
@@ -80,7 +80,7 @@ class _MyAppState extends State<MyApp> {
                 onPressed: onPressed,
               )
             : Result(
-                totalScore: totalScore,
+                scoreDataHandler: totalScore,
                 reset: _reset,
               ),
       ),
